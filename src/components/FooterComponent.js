@@ -1,5 +1,4 @@
 import React from 'react';
-import { Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 function Footer(props) {

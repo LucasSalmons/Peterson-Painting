@@ -1,4 +1,4 @@
-//Below is an array of staff to leverage in the project and can be added to as the company expands
+//Below is an array of staff to leverage in the project and can be added too as the company expands
 export const STAFF = [
     {
         id: 0,

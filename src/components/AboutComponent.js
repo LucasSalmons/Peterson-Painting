@@ -33,7 +33,7 @@ function About(props) {
                 <div className="col-12 col-md-6 mt-5">
                     <h2>History</h2>
                     <p>Licensed and bonded in 2017, Peterson Painting operates out of Joshua Tree California and serves the high and low deserts.</p>
-                    <p>Lead by owner and founder Tim Peterson with more than 20 years of experience painting projects of all shapes and sizes. Tim has always said: <strong>If you're goning to do a job, you better do it right</strong></p>
+                    <p>Lead by owner and founder Tim Peterson with more than 20 years of experience painting projects of all shapes and sizes. Tim has always said: <strong>If you're going to do a job, do it right.</strong></p>
                     <p><em>License number: 1049661 </em></p>
                 </div>
                 <div className="col-12 col-md-6">
