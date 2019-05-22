@@ -17,7 +17,7 @@ function Footer(props) {
                     <div className="col-4 col-sm-4">
                         <h5>Contact</h5>
                         <i className="fa fa-phone fa-lg"></i>: (760) 821-5002<br />
-                        <i className="fa fa-envelope fa-lg"></i>:<a href="/"> timmyp22@gmail.com</a>
+                        <i className="fa fa-envelope fa-lg"></i>:<a href="/"> timmyp22jt@gmail.com</a>
                     </div>
                 </div>
             </div>

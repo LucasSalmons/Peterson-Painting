@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardImg, CardBody, CardTitle, Carousel, CarouselItem, CarouselControl, CarouselIndicators, Button } from 'reactstrap';
+import { Card, CardImg, CardBody, CardTitle, Carousel, CarouselItem, CarouselControl, Button } from 'reactstrap';
 import { JOBS } from '../shared/jobs';
 import { Link } from 'react-router-dom';
 
@@ -54,7 +54,7 @@ function Home(props){
     return (
         <div className="container">
             <div className="row row-content">
-                <div className="col-12 col-sm-5">
+                <div className="col-12 col-sm-6">
                     <Card>
                         <CardBody>
                             <CardTitle>Before Peterson Painting</CardTitle>
@@ -62,7 +62,7 @@ function Home(props){
                         <CardImg src='/assets/images/before.jpeg'/>
                     </Card>
                 </div>
-                <div className="col-12 col-sm-5">
+                <div className="col-12 col-sm-6">
                     <Card>
                         <CardBody>
                             <CardTitle>After</CardTitle>

@@ -4,6 +4,7 @@ import Footer from './FooterComponent';
 import About from './AboutComponent';
 import Projects from './ProjectsComponent';
 import Home from './HomeComponent';
+import Contact from './ContactComponent';
 import { Switch, Route, withRouter, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -20,9 +21,10 @@ class Main extends Component {
             <div className="App">
                 <Header />
                 <Switch>
-                    <Route path='/home' render={()=> <Home item={this.props.jobs} />}/>
+                    <Route path='/home' component={Home}/>
                     <Route path='/about' render={() => <About staff={this.props.staff} />} />
                     <Route path='/projects' render={() => <Projects jobs={this.props.jobs} />} />
+                    <Route path='/contact' component={Contact}/>
                     <Redirect to='/home' />
                 </Switch>
                 <Footer />
