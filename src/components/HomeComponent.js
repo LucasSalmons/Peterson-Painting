@@ -3,38 +3,38 @@ import { Card, CardImg, CardBody, CardTitle, Carousel, CarouselItem, CarouselCon
 import { JOBS } from '../shared/jobs';
 import { Link } from 'react-router-dom';
 
-const jobs= JOBS;
+const jobs = JOBS;
 
 class Jobcarousel extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state= {activeIndex: 0}
+        this.state = { activeIndex: 0 }
     }
 
-    onExiting=()=>{
+    onExiting = () => {
         this.animating = true;
     }
-    onExited=()=>{
+    onExited = () => {
         this.animating = false;
     }
-    next=()=>{
+    next = () => {
         if (this.animating) return;
-        const nextIndex = this.state.activeIndex === jobs.length -1 ? 0 : this.state.activeIndex +1;
+        const nextIndex = this.state.activeIndex === jobs.length - 1 ? 0 : this.state.activeIndex + 1;
         this.setState({ activeIndex: nextIndex });
     }
-    previous=()=>{
+    previous = () => {
         if (this.animating) return;
-        const nextIndex = this.state.activeIndex === 0 ? jobs.length -1 : this.state.activeIndex -1;
+        const nextIndex = this.state.activeIndex === 0 ? jobs.length - 1 : this.state.activeIndex - 1;
         this.setState({ activeIndex: nextIndex });
     }
 
-    render(){
+    render() {
         const { activeIndex } = this.state;
 
-        const slides = jobs.map((job)=>{
-            return(
+        const slides = jobs.map((job) => {
+            return (
                 <CarouselItem onExiting={this.onExiting} onExited={this.onExited} key={job.id}>
-                    <img width="100%" src={job.image} alt={job.type}/>
+                    <img width="100%" src={job.image} alt={job.type} />
                 </CarouselItem>
             );
         });
@@ -42,32 +42,32 @@ class Jobcarousel extends Component {
         return (
             <Carousel activeIndex={activeIndex} next={this.next} previous={this.previous}>
                 {slides}
-                <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous}/>
-                <CarouselControl direction="next" directionText="Next" onClickHandler={this.next}/>
+                <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
+                <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
             </Carousel>
         );
     }
 
 }
 
-function Home(props){
+function Home(props) {
     return (
         <div className="container">
             <div className="row row-content">
                 <div className="col-12 col-sm-6">
                     <Card>
                         <CardBody>
-                            <CardTitle>Before Peterson Painting</CardTitle>
+                            <CardTitle className="text-center">Before Peterson Painting</CardTitle>
                         </CardBody>
-                        <CardImg src='/assets/images/before.jpeg'/>
+                        <CardImg src='/assets/images/before.jpeg' />
                     </Card>
                 </div>
                 <div className="col-12 col-sm-6">
                     <Card>
                         <CardBody>
-                            <CardTitle>After</CardTitle>
+                            <CardTitle className="text-center">After</CardTitle>
                         </CardBody>
-                        <CardImg src='/assets/images/after.jpeg'/>
+                        <CardImg src='/assets/images/after.jpeg' />
                     </Card>
                 </div>
             </div>

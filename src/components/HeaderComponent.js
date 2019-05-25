@@ -47,7 +47,7 @@ class Header extends Component {
                         <div className="row row-header">
                             <div className="col-12 col-sm-6">
                                 <h1>Peterson Painting</h1>
-                                <p>Servicing the High and Low deserts, for all your painting needs. Interior and exterior, for commercial and residential.</p>
+                                <p>Serving the High and Low deserts, for all your painting needs. Interior and exterior, for commercial and residential.</p>
                             </div>
                         </div>
                     </div>

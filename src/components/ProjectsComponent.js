@@ -62,10 +62,10 @@ function Projects(props) {
                 <div className="col-12 col-md-6">
                     <p>At Peterson Painting we cover a wide variety of projects.</p>
                 </div>
-                <div className="col-12 col-md-6">
+                <div className="col-12 col-md-6 text-center">
                     <p>Have we worked a project for you?</p>
                     <p>Tell us how we did.</p>
-                    <Ratingform/>
+                    <Ratingform />
                 </div>
                 <div className="row row-content">
                     <div className="col-12">
@@ -90,7 +90,7 @@ function Projects(props) {
     )
 }
 
-const required =(val)=>val && val.length;
+const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
 
 class Ratingform extends Component {
@@ -113,8 +113,8 @@ class Ratingform extends Component {
         alert('Curent State is: ' + JSON.stringify(values));
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <div>
                 <Button type="submit" color="secondary" onClick={this.toggleModal}>
                     Leave a Rating
@@ -126,10 +126,10 @@ class Ratingform extends Component {
                             <Row className="form-group">
                                 <Col>
                                     <Label htmlFor="name">Name</Label>
-                                    <Control.text model=".name" name="name" className="form-control" placeholder=" Your Name" 
-                                    validators={{
-                                        required, maxLength: maxLength(15)
-                                    }}/>
+                                    <Control.text model=".name" name="name" className="form-control" placeholder=" Your Name"
+                                        validators={{
+                                            required, maxLength: maxLength(15)
+                                        }} />
                                     <Errors
                                         className="text-danger"
                                         model=".name"
@@ -157,7 +157,7 @@ class Ratingform extends Component {
                                 <Col>
                                     <div className="form-check">
                                         <Label check>
-                                            <Control.checkbox model=".agree" name="agree" className="form-check-input"/>
+                                            <Control.checkbox model=".agree" name="agree" className="form-check-input" />
                                             {' '}<strong>May we share your feedback?</strong>
                                         </Label>
                                     </div>
