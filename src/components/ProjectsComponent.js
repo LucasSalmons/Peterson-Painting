@@ -29,25 +29,25 @@ function RenderAux({ aux }) {
 function Projects(props) {
 
     const exteriorArr = props.jobs.filter((job) => job.type === 'exterior');
-    const exterior = exteriorArr.map((exterior) => {
+    const exterior = exteriorArr.map((exterior, key) => {
         return (
-            <div className="col-12 col-sm-4 mt-5">
+            <div key={key} className="col-12 col-sm-4 mt-5">
                 <RenderExterior exterior={exterior} />
             </div>
         );
     })
     const interiorArr = props.jobs.filter((job) => job.type === 'interior');
-    const interior = interiorArr.map((interior) => {
+    const interior = interiorArr.map((interior, key) => {
         return (
-            <div className="col-12 col-sm-4 mt-5">
+            <div key={key} className="col-12 col-sm-4 mt-5">
                 <RenderInterior interior={interior} />
             </div>
         );
     })
     const auxArr = props.jobs.filter((job) => job.type === 'aux');
-    const aux = auxArr.map((aux) => {
+    const aux = auxArr.map((aux, key) => {
         return (
-            <div className="col-12 col-sm-4 mt-5">
+            <div key={key} className="col-12 col-sm-4 mt-5">
                 <RenderAux aux={aux} />
             </div>
         );

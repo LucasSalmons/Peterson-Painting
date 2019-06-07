@@ -72,10 +72,10 @@ function Home(props) {
                 </div>
             </div>
             <div className="row row-content">
-                <div className="col-6">
+                <div className="col-12 col-sm-6">
                     <Jobcarousel />
                 </div>
-                <div className="col-6">
+                <div className="col-12 col-sm-6">
                     <Card>
                         <CardImg src="/assets/images/logo-peterson-painting.jpeg" alt='logo' />
                     </Card>

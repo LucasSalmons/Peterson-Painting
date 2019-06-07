@@ -16,9 +16,9 @@ function RenderStaff({ staff }) {
 
 function About(props) {
 
-    const staff = props.staff.map((staff) => {
+    const staff = props.staff.map((staff, key) => {
         return (
-            <div className="col-12 col-sm-4 mt-5">
+            <div key={key} className="col-12 col-sm-4 mt-5">
                 <RenderStaff staff={staff} />
             </div>
         );
