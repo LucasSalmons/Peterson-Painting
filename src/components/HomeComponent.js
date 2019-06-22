@@ -77,7 +77,7 @@ function Home(props) {
                 </div>
                 <div className="col-12 col-sm-6">
                     <Card>
-                        <CardImg src="/assets/images/logo-peterson-painting.jpeg" alt='logo' />
+                        <CardImg src="/" alt='Idea' />
                     </Card>
                     <p className="mt-3">Want to see more of our work?</p>
                     <Link to='/projects'>

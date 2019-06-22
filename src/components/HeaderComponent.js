@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Nav, Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem, Jumbotron } from 'reactstrap';
+import { Nav, Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem, Jumbotron, Card, CardImg } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 
 class Header extends Component {
@@ -48,6 +48,11 @@ class Header extends Component {
                             <div className="col-12 col-sm-6">
                                 <h1>Peterson Painting</h1>
                                 <p>Serving the High and Low deserts, for all your painting needs. Interior and exterior, for commercial and residential.</p>
+                            </div>
+                            <div className="col-12 col-sm-6">
+                                <Card>
+                                    <CardImg src="/assets/images/logo-peterson-painting.jpeg" height="250" width="250" alt='logo' />
+                                </Card>
                             </div>
                         </div>
                     </div>

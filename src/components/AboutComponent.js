@@ -38,7 +38,7 @@ function About(props) {
                 </div>
                 <div className="col-12 col-md-6">
                     <Card>
-                        <CardImg src="/assets/images/logo-peterson-painting.jpeg" alt='logo' />
+                        <CardImg src="/" alt='Idea' />
                     </Card>
                 </div>
             </div>
