@@ -21,10 +21,10 @@ class Main extends Component {
             <div className="App">
                 <Header />
                 <Switch>
-                    <Route path='/home' component={Home}/>
+                    <Route path='/home' render={() => <Home jobs={this.props.jobs} />} />
                     <Route path='/about' render={() => <About staff={this.props.staff} />} />
                     <Route path='/projects' render={() => <Projects jobs={this.props.jobs} />} />
-                    <Route path='/contact' component={Contact}/>
+                    <Route path='/contact' component={Contact} />
                     <Redirect to='/home' />
                 </Switch>
                 <Footer />

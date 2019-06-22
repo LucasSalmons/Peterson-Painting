@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { Card, CardImg, CardBody, CardTitle, Carousel, CarouselItem, CarouselControl, Button } from 'reactstrap';
-import { JOBS } from '../shared/jobs';
 import { Link } from 'react-router-dom';
-
-const jobs = JOBS;
 
 class Jobcarousel extends Component {
     constructor(props) {
         super(props);
+
         this.state = { activeIndex: 0 }
     }
 
@@ -19,19 +17,19 @@ class Jobcarousel extends Component {
     }
     next = () => {
         if (this.animating) return;
-        const nextIndex = this.state.activeIndex === jobs.length - 1 ? 0 : this.state.activeIndex + 1;
+        const nextIndex = this.state.activeIndex === this.props.jobs.length - 1 ? 0 : this.state.activeIndex + 1;
         this.setState({ activeIndex: nextIndex });
     }
     previous = () => {
         if (this.animating) return;
-        const nextIndex = this.state.activeIndex === 0 ? jobs.length - 1 : this.state.activeIndex - 1;
+        const nextIndex = this.state.activeIndex === 0 ? this.props.jobs.length - 1 : this.state.activeIndex - 1;
         this.setState({ activeIndex: nextIndex });
     }
 
     render() {
         const { activeIndex } = this.state;
 
-        const slides = jobs.map((job) => {
+        const slides = this.props.jobs.map((job) => {
             return (
                 <CarouselItem onExiting={this.onExiting} onExited={this.onExited} key={job.id}>
                     <img width="100%" src={job.image} alt={job.type} />
@@ -47,7 +45,6 @@ class Jobcarousel extends Component {
             </Carousel>
         );
     }
-
 }
 
 function Home(props) {
@@ -73,7 +70,7 @@ function Home(props) {
             </div>
             <div className="row row-content">
                 <div className="col-12 col-sm-6">
-                    <Jobcarousel />
+                    <Jobcarousel jobs={props.jobs} />
                 </div>
                 <div className="col-12 col-sm-6">
                     <Card>
