@@ -48,5 +48,15 @@ export const JOBS = [
         id: 9,
         image: '/assets/images/3238square.jpeg',
         type: 'aux'
+    },
+    {
+        id: 10,
+        image: '/assets/images/after.jpeg',
+        type: 'after'
+    },
+    {
+        id: 11,
+        image: '/assets/images/before.jpeg',
+        type: 'before'
     }
 ]

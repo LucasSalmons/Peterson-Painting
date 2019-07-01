@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Card, CardImg, Button, Modal, ModalHeader, ModalBody, Row, Label, Col } from 'reactstrap';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 
-function RenderExterior({ exterior }) {
+const RenderExterior = ({ exterior }) => {
     return (
         <Card>
             <CardImg src={exterior.image} alt={exterior.type} />
@@ -10,7 +10,7 @@ function RenderExterior({ exterior }) {
     )
 }
 
-function RenderInterior({ interior }) {
+const RenderInterior = ({ interior }) => {
     return (
         <Card>
             <CardImg src={interior.image} alt={interior.type} />
@@ -18,7 +18,7 @@ function RenderInterior({ interior }) {
     )
 }
 
-function RenderAux({ aux }) {
+const RenderAux = ({ aux }) => {
     return (
         <Card>
             <CardImg src={aux.image} alt={aux.type} />
@@ -26,7 +26,7 @@ function RenderAux({ aux }) {
     )
 }
 
-function Projects(props) {
+const Projects = (props) => {
 
     const exteriorArr = props.jobs.filter((job) => job.type === 'exterior');
     const exterior = exteriorArr.map((exterior, key) => {
@@ -103,9 +103,9 @@ class Ratingform extends Component {
     }
 
     toggleModal = () => {
-        this.setState({
-            isModalOpen: !this.state.isModalOpen
-        });
+        this.setState(prevState => ({
+            isModalOpen: !prevState.isModalOpen
+        }));
     }
 
     handleSubmit = (values) => {

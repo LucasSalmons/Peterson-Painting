@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Card, CardImg, CardBody, CardTitle, Carousel, CarouselItem, CarouselControl, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { arrowFunctionExpression } from '@babel/types';
 
 class Jobcarousel extends Component {
     constructor(props) {
@@ -47,7 +48,9 @@ class Jobcarousel extends Component {
     }
 }
 
-function Home(props) {
+const Home = (props) => {
+    const before = props.jobs.filter((job) => job.type === 'before')[0];
+    const after = props.jobs.filter((job) => job.type === 'after')[0];
     return (
         <div className="container">
             <div className="row row-content">
@@ -56,7 +59,7 @@ function Home(props) {
                         <CardBody>
                             <CardTitle className="text-center">Before Peterson Painting</CardTitle>
                         </CardBody>
-                        <CardImg src='/assets/images/before.jpeg' />
+                        <CardImg src={before.image} />
                     </Card>
                 </div>
                 <div className="col-12 col-sm-6">
@@ -64,18 +67,15 @@ function Home(props) {
                         <CardBody>
                             <CardTitle className="text-center">After</CardTitle>
                         </CardBody>
-                        <CardImg src='/assets/images/after.jpeg' />
+                        <CardImg src={after.image} />
                     </Card>
                 </div>
             </div>
             <div className="row row-content">
-                <div className="col-12 col-sm-6">
+                <div className="col-12 col-sm-8">
                     <Jobcarousel jobs={props.jobs} />
                 </div>
-                <div className="col-12 col-sm-6">
-                    <Card>
-                        <CardImg src="/" alt='Idea' />
-                    </Card>
+                <div className="col-12 col-sm-4">
                     <p className="mt-3">Want to see more of our work?</p>
                     <Link to='/projects'>
                         <Button color="info">Click Here</Button>
