@@ -48,8 +48,8 @@ class Jobcarousel extends Component {
 }
 
 const Home = (props) => {
-    const before = props.jobs.filter((job) => job.type === 'before')[0];
-    const after = props.jobs.filter((job) => job.type === 'after')[0];
+    const before = props.jobs.jobs.filter((job) => job.type === 'before')[0];
+    const after = props.jobs.jobs.filter((job) => job.type === 'after')[0];
     return (
         <div className="container">
             <div className="row row-content">

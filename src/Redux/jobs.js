@@ -7,13 +7,13 @@ export const Jobs = (state = {
 }, action) => {
     switch (action.type) {
         case ActionTypes.ADD_JOBS:
-            return { ...state, isLoading: false, errMess: null, jobs: action.paylaod };
+            return { ...state, isLoading: false, errMess: null, jobs: action.payload };
 
         case ActionTypes.JOBS_LOADING:
-            return { ...state, isLoading: true, errMess: null, jobs: [] };
+            return { ...state, isLoading: true, errMess: null, jobs: [] }
 
         case ActionTypes.JOBS_FAILED:
-            return { ...state, isLoading: false, errMess: action.paylaod };
+            return { ...state, isLoading: false, errMess: action.payload };
 
         default:
             return state;

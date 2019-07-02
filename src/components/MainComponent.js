@@ -8,15 +8,30 @@ import Contact from './ContactComponent';
 import { Switch, Route, withRouter, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import { fetchStaff, fetchJobs } from '../redux/ActionCreators';
+
 const mapStateToProps = state => {
     return {
         staff: state.staff,
-        jobs: state.jobs,
+        jobs: state.jobs
     }
 }
+
+const mapDispatchToProps = (dispatch) => ({
+    fetchStaff: () => dispatch(fetchStaff()),
+    fetchJobs: () => dispatch(fetchJobs())
+});
+
 class Main extends Component {
 
+    componentDidMount() {
+        this.props.fetchStaff();
+        this.props.fetchJobs();
+    }
+
     render() {
+
+        console.log(this.props)
         return (
             <div className="App">
                 <Header />
@@ -33,4 +48,4 @@ class Main extends Component {
     }
 }
 
-export default withRouter(connect(mapStateToProps)(Main));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));

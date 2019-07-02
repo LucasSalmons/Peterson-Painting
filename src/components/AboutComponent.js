@@ -1,29 +1,46 @@
 import React from 'react';
 import { Card, CardBody, CardImg, CardTitle, CardText, CardSubtitle } from 'reactstrap';
 
-function RenderStaff({ staff }) {
+import { baseUrl } from '../shared/baseUrl';
+
+const RenderStaff = ({ staff }) => {
     return (
         <Card>
-            <CardImg src={staff.image} alt={staff.name} />
+            <CardImg src={baseUrl + staff.image} alt={staff.name} />
             <CardBody>
                 <CardTitle>{staff.name}</CardTitle>
                 <CardSubtitle>{staff.title}</CardSubtitle>
                 <CardText>{staff.description}</CardText>
             </CardBody>
         </Card>
-    )
+    );
 }
 
-const About = (props) => {
-
-    const staff = props.staff.map((staff, key) => {
+const StaffList = (props) => {
+    console.log(props)
+    const staff = props.staff.staff.map((staff, key) => {
         return (
             <div key={key} className="col-12 col-sm-4 mt-5">
                 <RenderStaff staff={staff} />
             </div>
         );
-    })
+    });
+    if (props.staff.isLoading) {
+        return (
+            <p>test</p>
+        );
+    }
+    else if (props.staff.errMess) {
+        return (
+            <h4>{props.staff.errMess}</h4>
+        );
+    }
+    else
+        return staff
+}
 
+const About = (props) => {
+    console.log(props)
     return (
         <div className="container">
             <div className="row row-content">
@@ -46,7 +63,7 @@ const About = (props) => {
                 <div className="col-12">
                     <h2>Our People</h2>
                 </div>
-                {staff}
+                <StaffList staff={props.staff} />
             </div>
         </div>
     )

@@ -40,7 +40,7 @@ export const addJobs = (jobs) => ({
 });
 
 export const fetchStaff = () => (dispatch) => {
-    dispatch(staffLoading(true));
+    dispatch(staffLoading());
 
     return fetch(baseUrl + 'staff')
         .then(response => {
