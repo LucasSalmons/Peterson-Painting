@@ -14,7 +14,7 @@ function RenderStaff({ staff }) {
     )
 }
 
-function About(props) {
+const About = (props) => {
 
     const staff = props.staff.map((staff, key) => {
         return (
