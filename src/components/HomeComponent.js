@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Card, CardImg, CardBody, CardTitle, Carousel, CarouselItem, CarouselControl, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import { arrowFunctionExpression } from '@babel/types';
 
 class Jobcarousel extends Component {
     constructor(props) {
