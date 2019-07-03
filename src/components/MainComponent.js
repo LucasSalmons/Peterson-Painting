@@ -36,11 +36,11 @@ class Main extends Component {
         const Landing = () => {
             return (
                 <Home
+                    jobs={this.props.jobs.jobs.map((job) => job)}
                     before={this.props.jobs.jobs.filter((job) => job.type === 'before')[0]}
+                    after={this.props.jobs.jobs.filter((job) => job.type === 'after')[0]}
                     loading={this.props.jobs.isLoading}
                     errMess={this.props.jobs.errMess}
-                    after={this.props.jobs.jobs.filter((job) => job.type === 'after')[0]}
-                    jobs={this.props.jobs.jobs}
                 />
             );
         }

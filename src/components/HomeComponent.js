@@ -29,12 +29,11 @@ class Jobcarousel extends Component {
     }
 
     render() {
-        console.log(this.props)
         const { activeIndex } = this.state;
-        const slides = this.props.jobs.jobs.map((job) => {
+        const slides = this.props.jobs.map((job) => {
             return (
                 <CarouselItem onExiting={this.onExiting} onExited={this.onExited} key={job.id}>
-                    <img width="100%" src={job.image} alt={job.type} />
+                    <img width="100%" src={baseUrl + job.image} alt={job.type} />
                 </CarouselItem>
             );
         });
@@ -97,7 +96,7 @@ const RenderJob = ({ jobs, isLoading, errMess }) => {
         return (
             <Card>
                 <CardBody>
-                    <CardTitle className="text-center">test</CardTitle>
+                    <CardTitle className="text-center">{jobs.description}</CardTitle>
                 </CardBody>
                 <CardImg src={baseUrl + jobs.image} />
             </Card>

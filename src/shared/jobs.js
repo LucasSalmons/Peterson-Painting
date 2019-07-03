@@ -52,11 +52,13 @@ export const JOBS = [
     {
         id: 10,
         image: '/assets/images/after.jpeg',
-        type: 'after'
+        type: 'after',
+        description: 'After'
     },
     {
         id: 11,
         image: '/assets/images/before.jpeg',
-        type: 'before'
+        type: 'before',
+        description: 'Before Peterson Painting'
     }
 ]
