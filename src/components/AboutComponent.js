@@ -17,7 +17,6 @@ const RenderStaff = ({ staff }) => {
 }
 
 const StaffList = (props) => {
-    console.log(props)
     const staff = props.staff.staff.map((staff, key) => {
         return (
             <div key={key} className="col-12 col-sm-4 mt-5">
@@ -40,7 +39,6 @@ const StaffList = (props) => {
 }
 
 const About = (props) => {
-    console.log(props)
     return (
         <div className="container">
             <div className="row row-content">

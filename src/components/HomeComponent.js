@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Card, CardImg, CardBody, CardTitle, Carousel, CarouselItem, CarouselControl, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
+import { baseUrl } from '../shared/baseUrl';
+
 class Jobcarousel extends Component {
     constructor(props) {
         super(props);
@@ -27,9 +29,9 @@ class Jobcarousel extends Component {
     }
 
     render() {
+        console.log(this.props)
         const { activeIndex } = this.state;
-
-        const slides = this.props.jobs.map((job) => {
+        const slides = this.props.jobs.jobs.map((job) => {
             return (
                 <CarouselItem onExiting={this.onExiting} onExited={this.onExited} key={job.id}>
                     <img width="100%" src={job.image} alt={job.type} />
@@ -48,26 +50,21 @@ class Jobcarousel extends Component {
 }
 
 const Home = (props) => {
-    const before = props.jobs.jobs.filter((job) => job.type === 'before')[0];
-    const after = props.jobs.jobs.filter((job) => job.type === 'after')[0];
+    console.log(props)
     return (
         <div className="container">
             <div className="row row-content">
                 <div className="col-12 col-sm-6">
-                    <Card>
-                        <CardBody>
-                            <CardTitle className="text-center">Before Peterson Painting</CardTitle>
-                        </CardBody>
-                        <CardImg src={before.image} />
-                    </Card>
+                    <RenderJob jobs={props.before}
+                        isLoading={props.loading}
+                        errMess={props.errMess}
+                    />
                 </div>
                 <div className="col-12 col-sm-6">
-                    <Card>
-                        <CardBody>
-                            <CardTitle className="text-center">After</CardTitle>
-                        </CardBody>
-                        <CardImg src={after.image} />
-                    </Card>
+                    <RenderJob jobs={props.after}
+                        isLoading={props.loading}
+                        errMess={props.errMess}
+                    />
                 </div>
             </div>
             <div className="row row-content">
@@ -82,7 +79,29 @@ const Home = (props) => {
                 </div>
             </div>
         </div>
-    )
+    );
+}
+
+const RenderJob = ({ jobs, isLoading, errMess }) => {
+    if (isLoading) {
+        return (
+            <p>test</p>
+        );
+    }
+    else if (errMess) {
+        return (
+            <h4>{errMess}</h4>
+        );
+    }
+    else
+        return (
+            <Card>
+                <CardBody>
+                    <CardTitle className="text-center">test</CardTitle>
+                </CardBody>
+                <CardImg src={baseUrl + jobs.image} />
+            </Card>
+        );
 }
 
 export default Home;

@@ -32,11 +32,24 @@ class Main extends Component {
     render() {
 
         console.log(this.props)
+
+        const Landing = () => {
+            return (
+                <Home
+                    before={this.props.jobs.jobs.filter((job) => job.type === 'before')[0]}
+                    loading={this.props.jobs.isLoading}
+                    errMess={this.props.jobs.errMess}
+                    after={this.props.jobs.jobs.filter((job) => job.type === 'after')[0]}
+                    jobs={this.props.jobs.jobs}
+                />
+            );
+        }
+
         return (
             <div className="App">
                 <Header />
                 <Switch>
-                    <Route path='/home' render={() => <Home jobs={this.props.jobs} />} />
+                    <Route path='/home' component={Landing} />
                     <Route path='/about' render={() => <About staff={this.props.staff} />} />
                     <Route path='/projects' render={() => <Projects jobs={this.props.jobs} />} />
                     <Route path='/contact' component={Contact} />
