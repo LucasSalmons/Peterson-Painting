@@ -30,9 +30,6 @@ class Main extends Component {
     }
 
     render() {
-
-        console.log(this.props)
-
         const Landing = () => {
             return (
                 <Home

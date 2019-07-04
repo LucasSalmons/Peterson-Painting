@@ -2,57 +2,84 @@ import React, { Component } from 'react';
 import { Card, CardImg, Button, Modal, ModalHeader, ModalBody, Row, Label, Col } from 'reactstrap';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 
-const RenderExterior = ({ exterior }) => {
+import { Loading } from './LoadingComponent';
+import { baseUrl } from '../shared/baseUrl';
+
+const RenderProject = ({ jobs }) => {
     return (
         <Card>
-            <CardImg src={exterior.image} alt={exterior.type} />
+            <CardImg src={baseUrl + jobs.image} alt={jobs.type} />
         </Card>
-    )
+    );
 }
 
-const RenderInterior = ({ interior }) => {
-    return (
-        <Card>
-            <CardImg src={interior.image} alt={interior.type} />
-        </Card>
-    )
+const ExteriorList = (props) => {
+    const exterior = props.jobs.jobs.filter((job) => job.type === 'exterior').map((jobs, key) => {
+        return (
+            <div key={key} className="col-12 col-sm-4 mt-5">
+                <RenderProject jobs={jobs} />
+            </div>
+        );
+    });
+    if (props.jobs.isLoading) {
+        return (
+            <Loading />
+        );
+    }
+    else if (props.jobs.errMess) {
+        return (
+            <h4>{props.jobs.errMess}</h4>
+        );
+    }
+    else
+        return exterior
 }
 
-const RenderAux = ({ aux }) => {
-    return (
-        <Card>
-            <CardImg src={aux.image} alt={aux.type} />
-        </Card>
-    )
+const InteriorList = (props) => {
+    const interior = props.jobs.jobs.filter((job) => job.type === 'interior').map((jobs, key) => {
+        return (
+            <div key={key} className="col-12 col-sm-4 mt-5">
+                <RenderProject jobs={jobs} />
+            </div>
+        );
+    });
+    if (props.jobs.isLoading) {
+        return (
+            <Loading />
+        );
+    }
+    else if (props.jobs.errMess) {
+        return (
+            <h4>{props.jobs.errMess}</h4>
+        );
+    }
+    else
+        return interior
+}
+
+const AuxList = (props) => {
+    const aux = props.jobs.jobs.filter((job) => job.type === 'aux').map((jobs, key) => {
+        return (
+            <div key={key} className="col-12 col-sm-4 mt-5">
+                <RenderProject jobs={jobs} />
+            </div>
+        );
+    });
+    if (props.jobs.isLoading) {
+        return (
+            <Loading />
+        );
+    }
+    else if (props.jobs.errMess) {
+        return (
+            <h4>{props.jobs.errMess}</h4>
+        );
+    }
+    else
+        return aux
 }
 
 const Projects = (props) => {
-
-    const exteriorArr = props.jobs.filter((job) => job.type === 'exterior');
-    const exterior = exteriorArr.map((exterior, key) => {
-        return (
-            <div key={key} className="col-12 col-sm-4 mt-5">
-                <RenderExterior exterior={exterior} />
-            </div>
-        );
-    })
-    const interiorArr = props.jobs.filter((job) => job.type === 'interior');
-    const interior = interiorArr.map((interior, key) => {
-        return (
-            <div key={key} className="col-12 col-sm-4 mt-5">
-                <RenderInterior interior={interior} />
-            </div>
-        );
-    })
-    const auxArr = props.jobs.filter((job) => job.type === 'aux');
-    const aux = auxArr.map((aux, key) => {
-        return (
-            <div key={key} className="col-12 col-sm-4 mt-5">
-                <RenderAux aux={aux} />
-            </div>
-        );
-    })
-
     return (
         <div className="container">
             <div className="row row-content">
@@ -71,19 +98,19 @@ const Projects = (props) => {
                     <div className="col-12">
                         <h2>Exterior</h2>
                     </div>
-                    {exterior}
+                    <ExteriorList jobs={props.jobs} />
                 </div>
                 <div className="row row-content">
                     <div className="col-12">
                         <h2>Interior</h2>
                     </div>
-                    {interior}
+                    <InteriorList jobs={props.jobs} />
                 </div>
                 <div className="row row-content">
                     <div className="col-12">
                         <h2>Patios &amp; More</h2>
                     </div>
-                    {aux}
+                    <AuxList jobs={props.jobs} />
                 </div>
             </div>
         </div>

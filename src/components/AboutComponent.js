@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, CardBody, CardImg, CardTitle, CardText, CardSubtitle } from 'reactstrap';
 
+import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
 
 const RenderStaff = ({ staff }) => {
@@ -26,7 +27,7 @@ const StaffList = (props) => {
     });
     if (props.staff.isLoading) {
         return (
-            <p>test</p>
+            <Loading />
         );
     }
     else if (props.staff.errMess) {

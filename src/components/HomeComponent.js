@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Card, CardImg, CardBody, CardTitle, Carousel, CarouselItem, CarouselControl, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
+import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
 
 class Jobcarousel extends Component {
@@ -84,7 +85,7 @@ const Home = (props) => {
 const RenderJob = ({ jobs, isLoading, errMess }) => {
     if (isLoading) {
         return (
-            <p>test</p>
+            <Loading />
         );
     }
     else if (errMess) {
