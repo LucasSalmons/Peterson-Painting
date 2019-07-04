@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Card, CardImg, Button, Modal, ModalHeader, ModalBody, Row, Label, Col } from 'reactstrap';
-import { Control, LocalForm, Errors } from 'react-redux-form';
+import { Control, Form, Errors } from 'react-redux-form';
 
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
@@ -92,7 +92,7 @@ const Projects = (props) => {
                 <div className="col-12 col-md-6 text-center">
                     <p>Have we worked a project for you?</p>
                     <p>Tell us how we did.</p>
-                    <Ratingform />
+                    <Ratingform postRating={props.postRating} />
                 </div>
                 <div className="row row-content">
                     <div className="col-12">
@@ -136,8 +136,7 @@ class Ratingform extends Component {
     }
 
     handleSubmit = (values) => {
-        console.log('Current State is: ' + JSON.stringify(values));
-        alert('Curent State is: ' + JSON.stringify(values));
+        this.props.postRating(values)
     }
 
     render() {
@@ -149,7 +148,7 @@ class Ratingform extends Component {
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                     <ModalHeader toggle={this.toggleModal}>Rate your Paint Job</ModalHeader>
                     <ModalBody>
-                        <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
+                        <Form model="rating" onSubmit={(values) => this.handleSubmit(values)}>
                             <Row className="form-group">
                                 <Col>
                                     <Label htmlFor="name">Name</Label>
@@ -203,7 +202,7 @@ class Ratingform extends Component {
                                     </Button>
                                 </Col>
                             </Row>
-                        </LocalForm>
+                        </Form>
                     </ModalBody>
                 </Modal>
             </div>

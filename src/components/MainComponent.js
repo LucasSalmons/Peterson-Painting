@@ -8,7 +8,8 @@ import Contact from './ContactComponent';
 import { Switch, Route, withRouter, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { fetchStaff, fetchJobs } from '../redux/ActionCreators';
+import { actions } from 'react-redux-form';
+import { fetchStaff, fetchJobs, postFeedback, postRating } from '../redux/ActionCreators';
 
 const mapStateToProps = state => {
     return {
@@ -18,6 +19,9 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
+    postFeedback: (feedback) => dispatch(postFeedback(feedback)),
+    resetFeedbackForm: () => { dispatch(actions.reset('feedback')) },
+    postRating: (rating) => dispatch(postRating(rating)),
     fetchStaff: () => dispatch(fetchStaff()),
     fetchJobs: () => dispatch(fetchJobs())
 });
@@ -48,8 +52,9 @@ class Main extends Component {
                 <Switch>
                     <Route path='/home' component={Landing} />
                     <Route path='/about' render={() => <About staff={this.props.staff} />} />
-                    <Route path='/projects' render={() => <Projects jobs={this.props.jobs} />} />
-                    <Route path='/contact' component={Contact} />
+                    <Route path='/projects' render={() => <Projects jobs={this.props.jobs} postRating={this.props.postRating} />} />
+                    <Route path='/contact' render={() => <Contact postFeedback={this.props.postFeedback}
+                        resetFeedbackForm={this.props.resetFeedbackForm} />} />
                     <Redirect to='/home' />
                 </Switch>
                 <Footer />

@@ -2,6 +2,67 @@ import * as ActionTypes from './ActionTypes';
 
 import { baseUrl } from '../shared/baseUrl';
 
+export const postFeedback = (feedback) => (dispatch) => {
+
+    return fetch(baseUrl + 'feedback', {
+        method: "POST",
+        body: JSON.stringify(feedback),
+        headers: {
+            "Content-Type": "application/json"
+        },
+        credentials: "same-origin",
+    })
+        .then(response => {
+            if (response.ok) {
+                return response;
+            } else {
+                let error = new Error('Error' + response.status + ': ' + response.statusText);
+                error.response = response;
+                throw error;
+            }
+        },
+            error => {
+                let errmess = new Error(error.message);
+                throw errmess;
+            })
+        .then(response => response.json())
+        .then(response => { console.log('Feedback', response); alert('Thank you for your feedback!') })
+        .catch(error => {
+            console.log('post feedback', error.message);
+            alert('Your feedback could not be posted\nError: ' + error.message);
+        });
+};
+
+export const postRating = (rating) => (dispatch) => {
+
+    return fetch(baseUrl + 'rating', {
+        method: "POST",
+        body: JSON.stringify(rating),
+        headers: {
+            "Content-Type": "application/json"
+        },
+        credentials: "same-origin",
+    })
+        .then(response => {
+            if (response.ok) {
+                return response;
+            } else {
+                let error = new Error('Error' + response.status + ': ' + response.statusText);
+                error.response = response;
+                throw error;
+            }
+        },
+            error => {
+                let errmess = new Error(error.message);
+                throw errmess;
+            })
+        .then(response => response.json())
+        .then(response => { console.log('rating', response); alert('Your rating has been sent thank you.') })
+        .catch(error => {
+            console.log('post rating', error.message);
+            alert('Sorry we could not recieve your rating\nError: ' + error.message);
+        });
+};
 
 export const fetchJobs = () => (dispatch) => {
     dispatch(jobsLoading(true));
