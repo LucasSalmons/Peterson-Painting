@@ -54,7 +54,7 @@ const About = (props) => {
                 </div>
                 <div className="col-12 col-md-6">
                     <Card>
-                        <CardImg src="/" alt='Idea' />
+                        <CardImg src="/assets/images/joshua-tree.jpg" alt='tree' />
                     </Card>
                 </div>
             </div>

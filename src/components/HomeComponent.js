@@ -72,7 +72,9 @@ const Home = (props) => {
                     <Jobcarousel jobs={props.jobs} />
                 </div>
                 <div className="col-12 col-sm-4">
-                    <p className="mt-3">Want to see more of our work?</p>
+                    <p>God help us, we're in the hands of engineers. Yeah, but John, if The Pirates of the Caribbean breaks down, the pirates don’t eat the tourists. This thing comes fully loaded. AM/FM radio, reclining bucket seats, and... power windows. God help us, we're in the hands of engineers.</p>
+                    <p>Yeah, but your scientists were so preoccupied with whether or not they could, they didn't stop to think if they should. Yeah, but your scientists were so preoccupied with whether or not they could, they didn't stop to think if they should. Checkmate...</p>
+                    <p className="mt-5">Want to see more of our work?</p>
                     <Link to='/projects'>
                         <Button color="info">Click Here</Button>
                     </Link>
