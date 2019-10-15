@@ -28,7 +28,7 @@ class Contact extends Component {
                     </div>
                     <div className="col-12 col-sm-6">
                         <i className="fa fa-phone fa-lg"></i>: (760) 821-5002<br />
-                        <i className="fa fa-envelope fa-lg"></i>:<a href="/"> timmyp22jt@gmail.com</a>
+                        <i className="fa fa-envelope fa-lg"></i>:<a href="mailto:"> timmyp22jt@gmail.com</a>
                     </div>
                 </div>
                 <div className="row row-content">
