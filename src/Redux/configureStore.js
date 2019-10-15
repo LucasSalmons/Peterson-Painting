@@ -7,7 +7,6 @@ import { InitalFeedback } from './forms';
 import { InitalRating } from './forms';
 
 import thunk from 'redux-thunk';
-import logger from 'redux-logger';
 
 export const ConfigureStore = () => {
     const store = createStore(
@@ -19,7 +18,7 @@ export const ConfigureStore = () => {
                 rating: InitalRating
             })
         }),
-        applyMiddleware(thunk, logger)
+        applyMiddleware(thunk)
     );
 
     return store;
